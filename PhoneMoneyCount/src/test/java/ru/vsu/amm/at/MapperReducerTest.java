@@ -49,9 +49,6 @@ public class MapperReducerTest {
     public void testMapReduce() {
         mapReduceDriver.withInput(new LongWritable(), new Text(
                 "79036541234\t79013454321\t15"));
-//        List<> values = new ArrayList<>();
-//        values.add(new LongWritable(1));
-//        values.add(new LongWritable(1));
         mapReduceDriver.withOutput(new Text("79036541234"), new Text("79013454321"));
         mapReduceDriver.runTest();
     }
