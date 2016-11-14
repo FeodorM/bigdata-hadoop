@@ -6,6 +6,7 @@ import org.apache.hadoop.mrunit.mapreduce.MapDriver;
 import org.apache.hadoop.mrunit.mapreduce.MapReduceDriver;
 import org.apache.hadoop.mrunit.mapreduce.ReduceDriver;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -34,9 +35,10 @@ public class MapperReducerTest {
         mapDriver.runTest();
     }
 
+    @Ignore
     @Test
     public void testReducer() {
-        List<Text> values = new ArrayList<Text>();
+        List<Text> values = new ArrayList<>();
         values.add(new Text("79013454321\t15"));
         values.add(new Text("79013454321\t15"));
         values.add(new Text("79013454322\t16"));
@@ -45,6 +47,7 @@ public class MapperReducerTest {
         reduceDriver.runTest();
     }
 
+    @Ignore
     @Test
     public void testMapReduce() {
         mapReduceDriver.withInput(new LongWritable(), new Text(

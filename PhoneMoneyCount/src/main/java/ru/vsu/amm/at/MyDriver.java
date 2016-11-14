@@ -1,6 +1,7 @@
 package ru.vsu.amm.at;
 
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.filecache.DistributedCache;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
@@ -26,6 +27,9 @@ public class MyDriver {
 
         job.setMapperClass(MyMapper.class);
         job.setReducerClass(MyReducer.class);
+
+        DistributedCache.addCacheFile(new Path(args[2]).toUri(), job.getConfiguration());
+        DistributedCache.addCacheFile(new Path(args[3]).toUri(), job.getConfiguration());
 
         job.setInputFormatClass(TextInputFormat.class);
         job.setOutputFormatClass(TextOutputFormat.class);
